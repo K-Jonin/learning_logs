@@ -9,6 +9,7 @@ learning_logs
 
 ## 使用技術
 Python
+
 Django
 
 ## 機能
