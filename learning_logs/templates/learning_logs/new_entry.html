@@ -1,0 +1,16 @@
+{% extends 'learning_logs/base.html' %}
+
+{% block content %}
+
+<p><a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a></p>
+
+<h2>新規記事を追加</h2>
+<form action="{% url 'learning_logs:new_entry' topic.id %}" method="post">
+    <!--ユーザーがフォームを通して不正な攻撃を仕掛けてくることを防ぐDjangoのメソッド（クロスサイトリクエストフォージェリ）-->
+    {% csrf_token %}
+    <!--formむ作成に必要な全ての要素を自動生成-->
+    {{form.as_p}}
+    <button name="submit">記事を追加</button>
+</form>
+
+{% endblock content %}
